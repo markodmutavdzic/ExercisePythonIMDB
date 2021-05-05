@@ -4,6 +4,7 @@ from movies import movies
 # Write a function that takes a single movie and
 # returns True if its IMDB score is above 5.5
 print(1)
+
 for movie in movies:
    if movie['imdb']>5.5:
        print(movie['name'], True)
@@ -12,6 +13,7 @@ for movie in movies:
 # Write a function that returns a sublist of movies
 # with an IMDB score above 5.5.
 print(2)
+
 lista = []
 for movie in movies:
     if movie['imdb']>5.5:
@@ -39,11 +41,11 @@ for k,v in categories_movies.items():
 print(4)
 
 
-sum = 0
+scores=[]
 for movie in movies:
-    sum += movie['imdb']
+    scores.append(movie['imdb'])
 
-print('Average IMDB score is: ', round(sum/len(movies), 2))
+print('Average IMDB score is: ', round(sum(scores)/len(scores), 2))
 
 
 # Write a function that takes a category and computes
@@ -59,10 +61,7 @@ for movie in movies:
     categories_score[movie['category']].append(movie['imdb'])
 
 for k,v in categories_score.items():
-    sum=0
-    for score in v:
-        sum+=score
-    print(k,':', sum/len(v))
+    print(k,':', sum(v)/len(v))
 
 
 
