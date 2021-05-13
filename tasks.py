@@ -18,7 +18,7 @@ def movie_score_above_55(single_movie):
 # Write a function that returns a sublist of movies
 # with an IMDB score above 5.5.
 
-def high_score_movies():
+def high_score_movies(movies):
     return [movie['name'] for movie in movies if movie_score_above_55(movie)]
 
 # def high_score_movies_collection():
@@ -40,7 +40,7 @@ def high_score_movies():
 # just those movies under that category.
 
 # kako ovu funkciju uraditi elegantnije
-def category_movies():
+def category_movies(movies):
     categories_movies = {}
     for movie in movies:
         if movie['category'] not in categories_movies:
@@ -54,10 +54,10 @@ def category_movies():
 # Write a function that takes a list of movies and computes
 # the average IMDB score.
 
-def average_score():
+def average_score(movies):
     scores = [movie["imdb"] for movie in movies]
     avg_score = (round(sum(scores) / len(scores), 2))
-    return f'Average IMDB score is: {avg_score} '
+    return f'Average IMDB score is: {avg_score}'
 
     # for movie in movies:
     #     scores.append(movie['imdb'])
@@ -69,7 +69,7 @@ def average_score():
 # def category_avg_score():
 
 # kako ovu funkciju uraditi elegantnije
-def category_average_score():
+def category_average_score(movies):
     categories_score = {}
     categories_avg_score = {}
     for movie in movies:
@@ -77,5 +77,5 @@ def category_average_score():
             categories_score[movie['category']] = []
         categories_score[movie['category']].append(movie['imdb'])
         for k, v in categories_score.items():
-            categories_avg_score.update({k: sum(v) / len(v)})
+            categories_avg_score.update({k: round(sum(v) / len(v),2)})
     return categories_avg_score
