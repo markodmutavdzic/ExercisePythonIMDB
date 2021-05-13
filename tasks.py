@@ -3,7 +3,7 @@ from movies import movies
 
 # Write a function that takes a single movie and
 # returns True if its IMDB score is above 5.5
-
+# 1
 
 def movie_score_above_55(movie_name):
     for movie in movies:
@@ -14,7 +14,7 @@ def movie_score_above_55(movie_name):
 
 # Write a function that returns a sublist of movies
 # with an IMDB score above 5.5.
-
+# 2
 
 def list_movies_with_score_above_55():
     list_movies = []
@@ -27,7 +27,7 @@ def list_movies_with_score_above_55():
 
 # Write a function that takes a category name and returns
 # just those movies under that category.
-
+# 3
 
 def category_movies(category):
     category_movies = []  # pricali smo da bude set ali mi je lakse bilo da koristim listu
@@ -42,6 +42,7 @@ def category_movies(category):
 
 # Write a function that takes a list of movies and computes
 # the average IMDB score.
+# 4
 
 def average_score(list_of_movies):
     scores = []
@@ -63,7 +64,7 @@ def average_score(list_of_movies):
 # Write a function that takes a category and computes
 # the average IMDB score (HINT: reuse the function
 # from question 3.
-
+# 5
 def category_average_score(category):
     category_movies = [movie for movie in movies if movie['category'] == category]
     if not category_movies:
