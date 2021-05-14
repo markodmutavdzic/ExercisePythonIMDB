@@ -30,14 +30,14 @@ def list_movies_with_score_above_55():
 # 3
 
 def category_movies(category):
-    category_movies = []  # pricali smo da bude set ali mi je lakse bilo da koristim listu
+    category_movies_list = []
     for movie in movies:
         if movie['category'] == category:
-            category_movies.append(movie)
+            category_movies_list.append(movie)
     # category_movies2=[movie for movie in movies if movie['category'] == category]
-    if not category_movies:
+    if not category_movies_list:
         return "No such category"
-    return category_movies
+    return category_movies_list
 
 
 # Write a function that takes a list of movies and computes
@@ -45,35 +45,27 @@ def category_movies(category):
 # 4
 
 def average_score(list_of_movies):
-    scores = []
-    dict_movies = [movie['name'] for movie in movies]
-    unknown_movies = []
-    for input_movie in list_of_movies:
-        if input_movie not in dict_movies:
-            unknown_movies.append(input_movie)
-        else:
-            for movie in movies:
-                if movie['name'] == input_movie:
-                    scores.append(movie['imdb'])
-    if not unknown_movies:
-        avg_score = round(sum(scores) / len(scores), 2)
-        return avg_score
-    return f"No movie(s):{unknown_movies}"
+    score = 0
+    for movie in list_of_movies:
+        score += movie['imdb']
+    avg_score = round(score/len(list_of_movies), 2)
+    return avg_score
 
 
 # Write a function that takes a category and computes
 # the average IMDB score (HINT: reuse the function
 # from question 3.
 # 5
+
 def category_average_score(category):
-    category_movies = [movie for movie in movies if movie['category'] == category]
-    if not category_movies:
+    category_movies_list = category_movies(category)
+    if category_movies_list == "No such category":
         return "No such category"
     else:
-        scores = []
-        for movie in category_movies:
-            scores.append(movie["imdb"])
-        avg_score = round(sum(scores) / len(scores), 2)
+        score = 0
+        for movie in category_movies_list:
+            score += movie['imdb']
+        avg_score = round(score / len(category_movies_list), 2)
         return avg_score
 
 
